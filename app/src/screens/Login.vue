@@ -24,7 +24,7 @@
     },
     methods: {
       onLogin () {
-        this.$router.push('Home');
+        this.$router.push({ name: 'Home' });
       }
     }
   };
