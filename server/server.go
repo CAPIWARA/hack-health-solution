@@ -8,10 +8,17 @@ import (
 	gqlhandler "github.com/graphql-go/graphql-go-handler"
 	"hack-health-solution/server/graphqlschema"
 	"github.com/kr/pretty"
+	"hack-health-solution/server/dbs"
+	"os"
 )
 
 func main() {
 	router := mux.NewRouter()
+
+	if err := dbs.NewSession(); err != nil {
+		pretty.Log("database error: ", err)
+		os.Exit(0)
+	}
 
 	runtime.GOMAXPROCS(runtime.NumCPU() - 1)
 	handler := gqlhandler.New(&gqlhandler.Config{
@@ -45,7 +52,7 @@ func requireAuth(next http.Handler) http.Handler {
 		//		//	w.WriteHeader(http.StatusInternalServerError)
 		//		//	return
 		//		//}
-		ctx := context.WithValue(r.Context(), "email", "1")
+		ctx := context.WithValue(r.Context(), "id", "1")
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }

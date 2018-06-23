@@ -2,9 +2,10 @@ package users
 
 import (
 	"time"
-	"github.com/mitchellh/mapstructure"
 	"errors"
 	"github.com/kr/pretty"
+	"hack-health-solution/server/dbs"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type User struct {
@@ -15,34 +16,12 @@ type User struct {
 }
 
 func GetUser(id string) (*User, error) {
-	var user *User
-	res, err := db.MongoRepoBuilder(UserCollection).FindById(id)
+	var data User
+	c := dbs.Session.DB(dbs.Database).C("users")
 
-	if err != nil {
-		pretty.Log("error: ", err)
-		return nil, err
-	}
-	if err = mapstructure.Decode(res, &user); err != nil {
-		pretty.Log("error: ", err)
-		return nil, err
-	}
-	return user, nil
-}
-
-func FindByEmail(email string) (*User, error) {
-	var data *User
-	res, err := db.MongoRepoBuilder(UserCollection).FindByQuery("email", email)
-	if err != nil {
-		pretty.Log("error: ", err)
-		return nil, err
-	}
-	if res == nil {
+	if err := c.Find(bson.M{"_id": id}).One(&data); err != nil {
 		pretty.Log("error: ", err)
 		return nil, errors.New("user not found")
 	}
-	if err := mapstructure.Decode(res, &data); err != nil {
-		pretty.Log("error: ", err)
-		return nil, err
-	}
-	return data, nil
+	return &data, nil
 }
