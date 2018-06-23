@@ -1,6 +1,7 @@
 <template>
   <fieldset class="harsh-entry">
     <input
+      v-bind="$attrs"
       :name="name"
       :type="type"
       :value="value"
