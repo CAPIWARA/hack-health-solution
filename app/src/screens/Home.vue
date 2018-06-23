@@ -1,11 +1,11 @@
 <template>
-  <harsh-screen>
-    <harsh-entry
-      v-model="message"
-      name="Mensagem"
-    />
+  <harsh-screen class="home-screen">
+    <img class="logo" src="~@/assets/images/Logo.png" alt="Sarrada" />
 
-    <harsh-button>{{ message }}</harsh-button>
+    <img class="banner" src="~@/assets/images/Banner-Sarrador.png" alt="Sarrador" />
+
+    <harsh-label>SARROU?</harsh-label>
+    <harsh-button>Sarrei!</harsh-button>
   </harsh-screen>
 </template>
 
@@ -19,6 +19,7 @@
         {
           user {
             name
+            gender
           }
         }
       `).then((x) => {
@@ -27,3 +28,17 @@
     }
   };
 </script>
+
+<style lang="stylus">
+  .home-screen
+    align-items: center
+
+    > .logo
+      width: auto
+      height: 35px
+      margin-top: 10px
+
+    > .banner
+      margin-top: 20px
+</style>
+

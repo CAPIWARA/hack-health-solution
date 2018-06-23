@@ -9,7 +9,9 @@
 
       <harsh-button type="submit">Entre</harsh-button>
 
-      <p class="paragraph">ou <router-link class="link" :to="{ name: 'Subscribe' }">cadastre-se</router-link></p>
+      <harsh-label>
+        ou <router-link class="link" :to="{ name: 'Subscribe' }">cadastre-se</router-link>
+      </harsh-label>
     </form>
   </harsh-screen>
 </template>
@@ -48,11 +50,4 @@
 
     > .logo
       margin-bottom: 60px
-
-    > .paragraph
-      color: #FFFFFF
-      { $typography-normal }
-
-    > .paragraph > .link
-      color: #FFFFFF
 </style>
