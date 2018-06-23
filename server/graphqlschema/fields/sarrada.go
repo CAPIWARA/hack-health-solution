@@ -31,3 +31,20 @@ var CreateSarrada = &graphql.Field{
 	},
 	Resolve:     resolvers.CreateSarrada,
 }
+
+var SarradaQuery = &graphql.Field{
+	Type:        types.Sarrada,
+	Description: "get sarrada",
+	Args: graphql.FieldConfigArgument{
+		"sarradaId": &graphql.ArgumentConfig{
+			Type: graphql.NewNonNull(graphql.String),
+		},
+	},
+	Resolve: resolvers.GetSarrada,
+}
+
+var SarradasQuery = &graphql.Field{
+	Type:        graphql.NewList(types.Sarrada),
+	Description: "get sarradas",
+	Resolve: resolvers.GetSarradas,
+}

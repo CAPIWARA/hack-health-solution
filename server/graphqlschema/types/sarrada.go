@@ -33,4 +33,8 @@ var Sarrada = graphql.NewObject(graphql.ObjectConfig{
 			Type:        graphql.String,
 			Description: "userid string",
 		},
+		"id": &graphql.Field{
+			Type:        graphql.String,
+			Description: "id string",
+		},
 	}})
