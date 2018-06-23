@@ -1,0 +1,12 @@
+# Dependências do Node.js.
+node_modules/
+
+# Indíce de dependências do NPM.
+package-lock.json
+
+# Arquivos de Log.
+*.log
+*.log.*
+
+# Arquivos de distribuição.
+dist/
