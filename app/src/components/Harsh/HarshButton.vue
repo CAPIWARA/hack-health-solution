@@ -85,5 +85,5 @@
     > .content
       { $typography-normal }
       text-transform: uppercase
-      color: $color-dart-typography
+      color: $color-dark-typography
 </style>
