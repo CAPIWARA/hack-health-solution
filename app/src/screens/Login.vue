@@ -1,6 +1,8 @@
 <template>
-  <harsh-screen>
+  <harsh-screen class="login-screen">
     <form class="login-form" @submit.prevent="onLogin()">
+      <img class="logo" src="~@/assets/images/Logo.png" alt="Sarrada" />
+
       <harsh-entry
         v-model="email"
         name="E-Mail"
@@ -34,16 +36,21 @@
 <style lang="stylus">
   @import '~@/assets/styles/theme'
 
+  .login-screen
+    justify-content: center
+
   .login-form
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
-    margin-top: 35vh
     padding: 30px
 
     > *
       margin-bottom: 25px
+
+    > .logo
+      margin-bottom: 60px
 
     > .paragraph
       color: #FFFFFF
