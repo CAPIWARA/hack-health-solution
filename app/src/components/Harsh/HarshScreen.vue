@@ -1,7 +1,7 @@
 <template>
-  <section class="harsh-screen">
+  <main class="harsh-screen">
     <slot />
-  </section>
+  </main>
 </template>
 
 <style lang="stylus">
@@ -12,6 +12,4 @@
     flex-direction: column
     width: 100%
     min-height: 100vh
-    background-color: $color-dark-background
-    background-image: linear-gradient(320deg, #000000, #212121 50%, #000000 100%)
 </style>

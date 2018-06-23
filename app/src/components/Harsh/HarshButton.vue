@@ -6,6 +6,9 @@
     :is="to ? 'router-link' : 'button'"
     :to="to ? to : null"
   >
+    <figure class="background"></figure>
+    <figure class="background"></figure>
+
     <span class="content">
       <slot />
     </span>
@@ -47,37 +50,42 @@
 <style lang="stylus">
   @import '~@/assets/styles/theme'
 
-  harsh-pill($size, $background)
-    display: block
-    height: $size
-    border-radius: $size
-    background-color: $background
+  $harsh-button-size = 48px
 
   .harsh-button
-    harsh-pill(48px, $color-primary)
     position: relative
-    padding: 0 40px
+    z-index: 0
+    height: $harsh-button-size
     border: 0
+    padding: 0
+    padding-left: 40px
+    padding-right: @padding-left
     outline: none
     cursor: pointer
 
-    &::before
-      harsh-pill(48px, $color-contrast)
+    > .background
       position: absolute
       top: 0
       left: 0
-      width: 100%
       z-index: -1
-      content: ''
+      display: block
+      width: 100%
+      height: $harsh-button-size
+      border-radius: @height
+      background-color: $color-primary
+
+    > .background:nth-child(1)
+      background-color: $color-contrast
       transform: translate(3px, 3px)
       transition: transform .5s ease
 
-    &:active::before
+    &:active > .background:nth-child(1)
       transform: translate(-2px, -2px)
       transition: transform .1s ease
 
     &.-is-button
       background-image: none
+      background-color: transparent
 
     &.-is-link
       text-decoration: none

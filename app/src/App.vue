@@ -1,5 +1,7 @@
 <template>
-  <router-view />
+  <harsh-layout>
+    <router-view />
+  </harsh-layout>
 </template>
 
 <style lang="stylus">
