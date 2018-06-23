@@ -1,7 +1,6 @@
 package users
 
 import (
-	"time"
 	"errors"
 	"github.com/kr/pretty"
 	"hack-health-solution/server/dbs"
@@ -11,8 +10,6 @@ import (
 type User struct {
 	Id       string    `json:"-" bson:"_id"`
 	Name     string    `json:"name"`
-	Email    string    `json:"email"`
-	UpdateAt time.Time `json:"updateAt"`
 }
 
 func GetUser(id string) (*User, error) {
