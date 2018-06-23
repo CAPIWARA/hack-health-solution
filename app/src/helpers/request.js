@@ -14,9 +14,7 @@ export function normalizeURL (url) {
  */
 export function getHeaders (body) {
   const headers = {
-    ... body && {
-      'Content-Type': 'application/json'
-    }
+    'Content-Type': 'application/json'
   };
 
   return headers;

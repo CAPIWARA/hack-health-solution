@@ -14,17 +14,17 @@
 
   export default {
     data: () => ({ message: 'Hello!' }),
-    mounted () {
-      requestGraphQL(`
+    async mounted () {
+      const response = await requestGraphQL(`
         {
           user {
             name
             gender
           }
         }
-      `).then((x) => {
-        console.log(x);
-      })
+      `);
+      const user = response.data.user;
+      console.dir({ user });
     }
   };
 </script>
