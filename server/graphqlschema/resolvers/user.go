@@ -8,8 +8,8 @@ import (
 )
 
 func GetUser(params graphql.ResolveParams) (interface{}, error) {
-	token := params.Context.Value("email").(string)
-	user, err := users.FindByEmail(token)
+	token := params.Context.Value("id").(string)
+	user, err := users.GetUser(token)
 	if err != nil {
 		pretty.Log("error: ", err)
 		return nil, err

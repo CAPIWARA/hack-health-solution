@@ -1,9 +1,9 @@
 package graphqlschema
 
 import (
-	"comunicode/server/gql/fields"
 
 	"github.com/graphql-go/graphql"
+	"hack-health-solution/server/graphqlschema/fields"
 )
 
 var query = graphql.NewObject(
