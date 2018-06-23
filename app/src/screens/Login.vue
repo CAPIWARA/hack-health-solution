@@ -3,28 +3,25 @@
     <form class="login-form" @submit.prevent="onLogin()">
       <img class="logo" src="~@/assets/images/Logo.png" alt="Sarrada" />
 
-      <harsh-entry
-        v-model="email"
-        name="E-Mail"
-      />
+      <harsh-entry v-model="email" type="email" name="E-Mail" autocomplete="email" />
 
-      <harsh-entry
-        v-model="email"
-        name="Senha"
-      />
+      <harsh-entry v-model="password" type="password" name="Senha" autocomplete="current-password" />
 
       <harsh-button type="submit">Entre</harsh-button>
 
-      <p class="paragraph">
-        ou
-        <router-link class="link" :to="{ name: 'Subscribe' }">cadastre-se</router-link>
-      </p>
+      <p class="paragraph">ou <router-link class="link" :to="{ name: 'Subscribe' }">cadastre-se</router-link></p>
     </form>
   </harsh-screen>
 </template>
 
 <script>
   export default {
+    data () {
+      return {
+        email: '',
+        password: ''
+      };
+    },
     methods: {
       onLogin () {
         this.$router.push('Home');
@@ -59,5 +56,3 @@
     > .paragraph > .link
       color: #FFFFFF
 </style>
-
-
