@@ -1,0 +1,86 @@
+# source: http://172.30.250.4:3000/graphql
+# timestamp: Sat Jun 23 2018 20:31:56 GMT-0300 (-03)
+
+schema {
+  query: query
+  mutation: mutation
+}
+
+# mutation
+type mutation {
+  # create new sarrada
+  createSarrada(quantidade: Int!, camisinha: Boolean!, oral: Boolean!, drogas: Boolean!, ejaculou: Boolean!, pessoa: String!): sarrada
+}
+
+# query
+type query {
+  # get sarrada
+  sarrada(sarradaId: String!): sarrada
+
+  # get sarradas
+  sarradas: [sarrada]
+
+  # get user
+  user: user
+}
+
+type sarrada {
+  # camisinha bool
+  camisinha: Boolean
+
+  # drogas bool
+  drogas: Boolean
+
+  # ejaculou bool
+  ejaculou: Boolean
+
+  # id string
+  id: String
+
+  # oral bool
+  oral: Boolean
+
+  # pessoa string
+  pessoa: String
+
+  # quantidade int
+  quantidade: Int
+
+  # userid string
+  userid: String
+}
+
+type user {
+  # birthday
+  birthday: String
+
+  # email
+  email: String
+
+  # ethnicity
+  ethnicity: String
+
+  # gender
+  gender: String
+
+  # genderIdentity
+  genderIdentity: String
+
+  # id
+  id: String
+
+  # image
+  image: String
+
+  # name
+  name: String
+
+  # orientation
+  orientation: String
+
+  # points
+  points: String
+
+  # socialName
+  socialName: String
+}

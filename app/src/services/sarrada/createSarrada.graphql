@@ -1,0 +1,26 @@
+mutation createSarrada (
+  $camisinha:  Boolean!
+  $drogas:     Boolean!
+  $ejaculou:   Boolean!
+  $oral:       Boolean!
+  $pessoa:     String!
+  $quantidade: Int!
+) {
+  createSarrada (
+    camisinha:  $camisinha
+    drogas:     $drogas
+    ejaculou:   $ejaculou
+    oral:       $oral
+    pessoa:     $pessoa
+    quantidade: $quantidade
+  ) {
+    camisinha
+    drogas
+    ejaculou
+    id
+    oral
+    pessoa
+    quantidade
+    userid
+  }
+}

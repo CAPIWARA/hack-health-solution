@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "Sarrada": {
+      "schemaPath": "src/schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": "http://172.30.250.4:3000/graphql"
+        }
+      }
+    }
+  }
+}
