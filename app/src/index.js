@@ -3,7 +3,7 @@ import App from './App';
 import router from './router';
 
 new Vue({
-  el: '#app',
+  el: '#root',
   router,
   render: (λ) => λ(App)
 });
