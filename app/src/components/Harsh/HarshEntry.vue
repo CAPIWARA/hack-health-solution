@@ -1,10 +1,10 @@
 <template>
   <fieldset class="harsh-entry">
-    <label class="name">{{ name }}</label>
     <input
       :name="name"
       :type="type"
       :value="value"
+      :placeholder="name"
       class="entry"
       @input="input($event)"
     />
@@ -40,12 +40,29 @@
   .harsh-entry
     &
       display: flex
+      border: 0
+      width: 100%
 
     > .name
-      display: block
       { $typography-normal }
+      display: block
+      color: #FFFFFF
 
     > .entry
       display: block
-      { $typography-normal }
+      width: 100%
+      padding: 10px
+      border: 0
+      border-bottom: 1px solid #FFFFFF
+      background-color: transparent
+      text-align: center
+      outline: none
+
+      &:focus
+        border-bottom-color: $color-primary
+
+      &
+      &::placeholder
+        { $typography-normal }
+        color: #FFFFFF
 </style>

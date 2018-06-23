@@ -10,7 +10,20 @@
 </template>
 
 <script>
+  import { requestGraphQL } from '@/helpers/request';
+
   export default {
-    data: () => ({ message: 'Hello!' })
+    data: () => ({ message: 'Hello!' }),
+    mounted () {
+      requestGraphQL(`
+        {
+          user {
+            name
+          }
+        }
+      `).then((x) => {
+        console.log(x);
+      })
+    }
   };
 </script>
