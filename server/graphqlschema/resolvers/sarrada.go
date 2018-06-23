@@ -23,3 +23,27 @@ func CreateSarrada(params graphql.ResolveParams) (interface{}, error) {
 	}
 	return sarrada, nil
 }
+
+func GetSarrada(params graphql.ResolveParams)(interface{}, error){
+	sarradaId := params.Args["sarradaId"].(string)
+
+	data, err := users.GetSarrada(sarradaId)
+	if err != nil {
+		pretty.Log(err)
+		return nil, err
+	}
+
+	return data, nil
+}
+
+func GetSarradas(params graphql.ResolveParams)(interface{}, error){
+	userId := params.Context.Value("id").(string)
+
+	data, err := users.GetSarradas(userId)
+	if err != nil {
+		pretty.Log(err)
+		return nil, err
+	}
+	pretty.Log(data)
+	return data, nil
+}

@@ -12,6 +12,8 @@ var query = graphql.NewObject(
 		Description: "query",
 		Fields: graphql.Fields{
 			"user": fields.UserQuery,
+			"sarrada": fields.SarradaQuery,
+			"sarradas": fields.SarradasQuery,
 		},
 	},
 )
