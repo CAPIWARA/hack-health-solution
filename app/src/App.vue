@@ -1,3 +1,3 @@
 <template>
-  <h1>Sarrada</h1>
+  <router-view />
 </template>
