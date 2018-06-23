@@ -1,0 +1,23 @@
+{
+  "name": "sarrada-web-application",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Solução para o hackathon Hack Health realizado nos dias 23 e 24 de junho de 2018.",
+  "main": "src/index.js",
+  "repository": "https://github.com/VitorLuizC/hack-health-solution.git",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "poi src/index.js",
+    "build": "poi build src/index.js"
+  },
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "poi": "^10.2.9",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.5.16"
+  }
+}
