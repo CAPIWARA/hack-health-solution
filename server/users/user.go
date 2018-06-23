@@ -8,8 +8,10 @@ import (
 )
 
 type User struct {
-	Id       string    `json:"-" bson:"_id"`
-	Name     string    `json:"name"`
+	Id         string `json:"-" bson:"_id"`
+	Name       string `json:"name"`
+	Points     int    `json:"points"`
+	SocialName string `json:"socialname,omitempty"`
 }
 
 func GetUser(id string) (*User, error) {
@@ -20,5 +22,6 @@ func GetUser(id string) (*User, error) {
 		pretty.Log("error: ", err)
 		return nil, errors.New("user not found")
 	}
+	pretty.Log(data)
 	return &data, nil
 }
