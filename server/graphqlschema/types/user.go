@@ -60,6 +60,10 @@ var Friends = graphql.NewObject(graphql.ObjectConfig{
 			Type:        graphql.String,
 			Description: "name",
 		},
+		"image":  &graphql.Field{
+			Type:        graphql.String,
+			Description: "image",
+		},
 		"sarradinhas": &graphql.Field{
 			Type:        graphql.Int,
 			Description: "sarradinhas",

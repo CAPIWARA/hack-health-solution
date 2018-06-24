@@ -14,7 +14,6 @@ type User struct {
 	Birthday       string   `json:"birthday"`
 	Sarradinhas    int      `json:"sarradinhas"`
 	SocialName     string   `json:"socialName"`
-	Gender         string   `json:"gender"`
 	Orientation    string   `json:"orientation"`
 	Ethnicity      string   `json:"ethnicity"`
 	GenderIdentity string   `json:"genderIdentity"`
@@ -26,6 +25,7 @@ type User struct {
 type Friend struct {
 	Name        string `json:"name"`
 	Sarradinhas int    `json:"sarradinhas"`
+	Image       string `json:"image"`
 }
 
 func GetUser(id string) (*User, error) {
@@ -51,6 +51,11 @@ func (user *User) CreateExam() (error) {
 }
 
 func AddSarradinhas(total int, userid string) (error) {
+	//user, err := GetUser(userid)
+	//if err != nil {
+	//	pretty.Log(err)
+	//	return err
+	//}
 	c := dbs.Session.DB(dbs.Database).C("users")
 	if err := c.Update(bson.M{"_id": userid}, bson.M{"$inc": bson.M{"sarradinhas": total}}); err != nil {
 		pretty.Log(err)
