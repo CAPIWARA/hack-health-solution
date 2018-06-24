@@ -119,6 +119,10 @@
     width: 100%
     border: 0
 
+    > .label
+      { $typography-normal }
+      color: $color-primary
+
     > .selection
       @extends .harsh-select-selection
 

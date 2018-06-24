@@ -2,14 +2,13 @@
   <div class="harsh-options">
     <label class="label">{{ label }}</label>
     <div class="options">
-      <div
-        v-for="option in options"
-        :key="option.value"
-        class="option"
-        @click="$emit('input', option.value)"
-      >
-        <div :class="['checkbox', { '-is-checked': value === option.value }]" />
-        <label class="label">{{ option.label }}</label>
+      <div v-for="option in options" :key="option.value" class="option">
+
+        <div :class="checkboxClasses(option)" @click="input(option)" />
+
+        <label class="label" @click="input(option)">
+          {{ option.label }}
+        </label>
       </div>
     </div>
   </div>
@@ -29,6 +28,18 @@
       label: {
         type: String,
         required: true
+      }
+    },
+    methods: {
+      input (option) {
+        this.$emit('input', option.value);
+      },
+      checkboxClasses (option) {
+        return [
+          'checkbox', {
+            '-is-checked': this.value === option.value
+          }
+        ];
       }
     }
   };
