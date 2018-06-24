@@ -63,5 +63,4 @@ func GetFriends(params graphql.ResolveParams) (interface{}, error) {
 		friends = append(friends, friend)
 	}
 	return friends, nil
-
 }

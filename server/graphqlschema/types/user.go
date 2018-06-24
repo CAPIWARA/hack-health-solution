@@ -31,10 +31,6 @@ var User = graphql.NewObject(graphql.ObjectConfig{
 			Type:        graphql.String,
 			Description: "socialName",
 		},
-		"gender": &graphql.Field{
-			Type:        graphql.String,
-			Description: "gender",
-		},
 		"orientation": &graphql.Field{
 			Type:        graphql.String,
 			Description: "orientation",
