@@ -1,5 +1,7 @@
 <template>
-  <harsh-screen classy="profile-screen">
+  <p v-if="isLoading">Carregando...</p>
+
+  <harsh-screen v-else classy="profile-screen">
     <img src="~@/assets/images/Avatar.png" alt="Avatar" />
 
     <harsh-entry
@@ -35,10 +37,10 @@
       v-model="orientation"
       label="Qual sua oriêntação sexual?"
       :items="[
-        { label: 'Heterossexual', value: 'Heterossexual' },
-        { label: 'Homossexual', value: 'Homossexual' },
-        { label: 'Bissexual', value: 'Bissexual' },
-        { label: 'Assexual', value: 'Assexual' },
+        { label: 'Heterossexual', value: 'Hetero' },
+        { label: 'Homossexual', value: 'Homo' },
+        { label: 'Bissexual', value: 'Bi' },
+        { label: 'Assexual', value: 'A' },
       ]"
     />
 
@@ -46,10 +48,10 @@
       v-model="ethnicity"
       label="Qual sua etnia?"
       :items="[
-        { label: 'Negra', value: 'Negra'       },
-        { label: 'Branca', value: 'Branca'     },
+        { label: 'Negra', value: 'Negro'       },
+        { label: 'Branca', value: 'Branco'     },
         { label: 'Indígena', value: 'Indígena' },
-        { label: 'Asiática', value: 'Asiática' },
+        { label: 'Asiática', value: 'Asiático' },
       ]"
     />
 
@@ -67,17 +69,33 @@
 </template>
 
 <script>
+  import format from 'tiny-date-format';
+  import { fetch } from '@/services/profile';
+
   export default {
     data () {
       return {
         name: '',
         email: '',
-        birthdate: new Date(),
+        birthdate: format(new Date(), 'YYYY-MM-DD'),
         genderIndentity: null,
         orientation: null,
         ethnicity: null,
-        disease: null
+        disease: null,
+        isLoading: true
       };
+    },
+    async mounted () {
+      const profile = await fetch();
+
+      this.name = profile.name;
+      this.email = profile.email;
+      this.ethnicity = profile.ethnicity;
+      this.orientation = profile.orientation;
+      this.birthdate = format(new Date(profile.birthday), 'YYYY-MM-DD');
+      this.genderIndentity = profile.genderIdentity;
+
+      this.isLoading = false;
     }
   };
 </script>
