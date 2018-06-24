@@ -32,7 +32,7 @@ func CreateExam(params graphql.ResolveParams) (interface{}, error) {
 		pretty.Log(err)
 		return nil, err
 	}
-	if lastexam.AddDate(0, 3, 0).After(time.Now().AddDate(0, 3, 0).Add(-2 * time.Minute)) {
+	if lastexam.AddDate(0, 3, 0).After(time.Now().AddDate(0, 3, 0).Add(-1 * time.Minute)) {
 		return nil, errors.New("Voce precisa esperar pelo menos 3 meses para refazer o teste")
 	}
 
@@ -59,6 +59,7 @@ func GetFriends(params graphql.ResolveParams) (interface{}, error) {
 		friend := users.Friend{
 			Name:        item.Name,
 			Sarradinhas: item.Sarradinhas,
+			Image: item.Image,
 		}
 		friends = append(friends, friend)
 	}

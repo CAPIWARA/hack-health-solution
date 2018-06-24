@@ -33,7 +33,7 @@ var CreateSarrada = &graphql.Field{
 }
 
 var SarradaQuery = &graphql.Field{
-	Type:        types.TotalSarradinhas,
+	Type:        types.Sarrada,
 	Description: "get sarrada",
 	Args: graphql.FieldConfigArgument{
 		"sarradaId": &graphql.ArgumentConfig{

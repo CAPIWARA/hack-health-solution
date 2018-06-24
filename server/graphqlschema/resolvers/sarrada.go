@@ -7,7 +7,9 @@ import (
 )
 
 type Sarradinhas struct {
-	Total int `json:"total"`
+	Total    int    `json:"total"`
+	Mensagem string `json:"mensagem"`
+	Id       string `json:"id"`
 }
 
 func CreateSarrada(params graphql.ResolveParams) (interface{}, error) {
@@ -26,10 +28,15 @@ func CreateSarrada(params graphql.ResolveParams) (interface{}, error) {
 		pretty.Log(err)
 		return nil, err
 	}
-	return Sarradinhas{Total: total}, nil
+	sarradinhas := Sarradinhas{
+		Total:    total,
+		Mensagem: sarrada.Mensagem,
+		Id:       sarrada.Id,
+	}
+	return sarradinhas, nil
 }
 
-func GetSarrada(params graphql.ResolveParams)(interface{}, error){
+func GetSarrada(params graphql.ResolveParams) (interface{}, error) {
 	sarradaId := params.Args["sarradaId"].(string)
 
 	data, err := users.GetSarrada(sarradaId)
@@ -41,7 +48,7 @@ func GetSarrada(params graphql.ResolveParams)(interface{}, error){
 	return data, nil
 }
 
-func GetSarradas(params graphql.ResolveParams)(interface{}, error){
+func GetSarradas(params graphql.ResolveParams) (interface{}, error) {
 	userId := params.Context.Value("id").(string)
 
 	data, err := users.GetSarradas(userId)
