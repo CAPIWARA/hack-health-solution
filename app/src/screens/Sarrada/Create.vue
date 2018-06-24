@@ -10,7 +10,6 @@
     />
 
     <harsh-options
-      v-if="params.camisinha"
       v-model="params.oral"
       label="Até no sexo oral?"
       :options="[
