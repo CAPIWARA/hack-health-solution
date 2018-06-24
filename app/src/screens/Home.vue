@@ -1,11 +1,9 @@
 <template>
-  <harsh-screen class="home-screen">
-    <img class="logo" src="~@/assets/images/Logo.png" alt="Sarrada" />
-
+  <harsh-screen classy="home-screen">
     <img class="banner" src="~@/assets/images/Banner-Sarrador.png" alt="Sarrador" />
 
-    <harsh-label>SARROU?</harsh-label>
-    <harsh-button>Sarrei!</harsh-button>
+    <harsh-label class="label">SARROU?</harsh-label>
+    <harsh-button class="button">Sarrei!</harsh-button>
   </harsh-screen>
 </template>
 
@@ -31,14 +29,11 @@
 
 <style lang="stylus">
   .home-screen
-    align-items: center
-
-    > .logo
-      width: auto
-      height: 35px
-      margin-top: 10px
+    padding-top: 15px
+    padding-bottom: @padding-top
 
     > .banner
-      margin-top: 20px
+      margin-bottom: auto
+    > .label
+      margin-bottom: 10px
 </style>
-

@@ -1,5 +1,5 @@
 <template>
-  <harsh-screen class="login-screen">
+  <harsh-screen classy="login-screen" is-full-screen>
     <form class="login-form" @submit.prevent="onLogin()">
       <img class="logo" src="~@/assets/images/Logo.png" alt="Sarrada" />
 
