@@ -1,35 +1,21 @@
 <template>
-  <harsh-screen classy="sarradinhas-screen">
+  <p v-if="isLoading">Carregando...</p>
+
+  <harsh-screen v-else classy="sarradinhas-screen">
     <sarradinhas-header
       class="header"
-      :quantity="396"
-      user-name="Vitor"
-      user-avatar="https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/profile/profile-512.jpg"
+      :quantity="+user.sarradinhas"
+      :user-name="user.name"
+      :user-avatar="user.avatar"
     />
 
     <sarradinhas-chart
       class="chart"
-      :stats="[ 32, 29, 39, 15, 14, 15 ]"
+      :stats="stats"
     />
 
     <sarradinhas-friends
-      :friends="[
-        {
-          avatar: 'https://avatars3.githubusercontent.com/u/455023',
-          name: 'Minko Gechev',
-          quantity: 198
-        },
-        {
-          avatar: 'https://avatars3.githubusercontent.com/u/455023',
-          name: 'Minko Gechev',
-          quantity: 211
-        },
-        {
-          avatar: 'https://avatars3.githubusercontent.com/u/455023',
-          name: 'Minko Gechev',
-          quantity: 211
-        }
-      ]"
+      :friends="friends"
     />
   </harsh-screen>
 </template>
@@ -38,9 +24,26 @@
   import SarradinhasChart from '@/components/Sarradinhas/SarradinhasChart';
   import SarradinhasHeader from '@/components/Sarradinhas/SarradinhasHeader';
   import SarradinhasFriends from '@/components/Sarradinhas/SarradinhasFriends';
+  import { getHistory } from '@/services/sarrada';
 
   export default {
     components: { SarradinhasChart, SarradinhasHeader, SarradinhasFriends },
+    data () {
+      return {
+        isLoading: true,
+        friends: [],
+        stats: [],
+        user: {},
+      };
+    },
+    async mounted () {
+      this.isLoading = true;
+      const { friends, user, sarradas } = await getHistory();
+      this.user = user
+      this.friends = friends;
+      this.stats = sarradas.map((_) => _.total);
+      this.isLoading = false;
+    }
   };
 </script>
 

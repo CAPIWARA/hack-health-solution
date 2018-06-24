@@ -1,0 +1,13 @@
+query getSarrada ($id: String!) {
+  sarrada (sarradaId: $id) {
+    camisinha
+    drogas
+    ejaculou
+    id
+    oral
+    pessoa
+    quantidade
+    mensagem
+    total
+  }
+}

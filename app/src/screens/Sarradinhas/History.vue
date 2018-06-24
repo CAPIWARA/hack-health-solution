@@ -1,5 +1,7 @@
 <template>
-  <harsh-screen classy="sarradinhas-history-screen">
+  <p v-if="isLoading">Carregando...</p>
+
+  <harsh-screen v-else classy="sarradinhas-history-screen">
     <header class="sarradinhas-history-header">
       <div class="quantity">
         <harsh-label class="label">Você tem</harsh-label>
@@ -16,16 +18,16 @@
       <router-link
         v-for="(sarrada, index) in sarradas"
         :key="index"
-        :to="{ name: '' }"
+        :to="{ name: 'Detalhes da Sarrada', params: { id: sarrada.id } }"
         class="sarradinha-history-item"
       >
         <p class="sarrada">
-          <harsh-label class="classification">{{ sarrada.classification }}</harsh-label>
-          <harsh-label class="date">{{ sarrada.date | toDate }}</harsh-label>
+          <harsh-label class="classification">{{ sarrada.mensagem }}</harsh-label>
+          <!-- <harsh-label class="date">{{ sarrada.date | toDate }}</harsh-label> -->
         </p>
 
         <p class="points">
-          <harsh-label class="quantity">{{ sarrada.points }}</harsh-label>
+          <harsh-label class="quantity">{{ sarrada.total }}</harsh-label>
           <harsh-label class="label">Sarradinhas</harsh-label>
         </p>
       </router-link>
@@ -34,11 +36,14 @@
 </template>
 
 <script>
+  import { getHistory } from '@/services/sarrada';
+
   const DAY = 24 * 60 * 60 * 1000;
 
   export default {
     data () {
       return {
+        isLoading: false,
         quantity: 396,
         sarradas: [
           {
@@ -58,6 +63,13 @@
           }
         ]
       };
+    },
+    async mounted () {
+      this.isLoading = true;
+      const { user, sarradas } = await getHistory();
+      this.quantity = user.sarradinhas;
+      this.sarradas = sarradas;
+      this.isLoading = false;
     }
   };
 </script>

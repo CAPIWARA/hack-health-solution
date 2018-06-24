@@ -6,7 +6,7 @@ mutation createSarrada (
   $pessoa:     String!
   $quantidade: Int!
 ) {
-  createSarrada (
+  sarrada: createSarrada (
     camisinha:  $camisinha
     drogas:     $drogas
     ejaculou:   $ejaculou
@@ -14,7 +14,8 @@ mutation createSarrada (
     pessoa:     $pessoa
     quantidade: $quantidade
   ) {
-    mensagem
+    id
     total
+    mensagem
   }
 }

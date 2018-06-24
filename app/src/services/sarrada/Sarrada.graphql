@@ -1,0 +1,11 @@
+fragment Sarrada on sarrada {
+  camisinha
+  drogas
+  ejaculou
+  id
+  oral
+  pessoa
+  quantidade
+  mensagem
+  total
+}

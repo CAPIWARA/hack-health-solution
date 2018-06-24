@@ -16,8 +16,12 @@ const mutations = {
 };
 
 const actions = {
-  [types.SARRADA_CREATE]: async ({ commit }, params) => {
+  [types.SARRADA_CREATE]: async ({ dispatch }, params) => {
     const sarrada = await services.create(params);
+    return sarrada;
+  },
+  [types.SARRADA]: async ({ commit }, id) => {
+    const sarrada = await services.fetch(id);
     commit(types.SARRADA, sarrada);
   }
 };

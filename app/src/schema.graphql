@@ -1,5 +1,5 @@
 # source: http://172.30.250.249:3000/graphql
-# timestamp: Sun Jun 24 2018 14:29:20 GMT-0300 (-03)
+# timestamp: Sun Jun 24 2018 15:23:21 GMT-0300 (-03)
 
 schema {
   query: query
@@ -23,7 +23,7 @@ type mutation {
   createExam: user
 
   # create new sarrada
-  createSarrada(oral: Boolean!, drogas: Boolean!, ejaculou: Boolean!, pessoa: String!, quantidade: Int!, camisinha: Boolean!): sarradinhas
+  createSarrada(pessoa: String!, quantidade: Int!, camisinha: Boolean!, oral: Boolean!, drogas: Boolean!, ejaculou: Boolean!): sarradinhas
 }
 
 # query
@@ -54,6 +54,9 @@ type sarrada {
   # id string
   id: String
 
+  # mensagem string
+  mensagem: String
+
   # oral bool
   oral: Boolean
 
@@ -63,11 +66,17 @@ type sarrada {
   # quantidade int
   quantidade: Int
 
+  # total int
+  total: Int
+
   # userid string
   userid: String
 }
 
 type sarradinhas {
+  # id
+  id: String
+
   # mensagem da sarrada
   mensagem: String
 

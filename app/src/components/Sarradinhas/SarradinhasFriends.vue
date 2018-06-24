@@ -63,6 +63,10 @@
       font-size: 14pt
       font-weight: 500
       text-transform: uppercase
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 190px;
 
     > .sarradinhas > .quantity
       color: $color-primary

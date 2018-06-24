@@ -85,12 +85,11 @@
     methods: {
       async onCreateSarrada () {
         try {
-          await this.$store.dispatch(types.SARRADA_CREATE, {
+          const { id } = await this.$store.dispatch(types.SARRADA_CREATE, {
             ...this.params,
             pessoa: this.params.pessoa && this.params.pessoa.value
           });
-          const sarrada = this.$store.getters[types.SARRADA] || {};
-          this.$router.push({ name: 'Detalhes da Sarrada', params: { id: sarrada.id } });
+          this.$router.push({ name: 'Detalhes da Sarrada', params: { id } });
         } catch (error) {
           console.dir(error);
           this.error = 'Erro ao enviar a sarrada, confira os campos preenchidos ou sarre novamente.'

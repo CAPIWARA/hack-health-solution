@@ -1,0 +1,25 @@
+query getSarradas {
+  friends {
+    avatar: image
+    name
+    quantity: sarradinhas
+  }
+
+  user {
+    name
+    avatar: image
+    sarradinhas
+  }
+
+  sarradas {
+    id
+    oral
+    total
+    pessoa
+    drogas
+    ejaculou
+    mensagem
+    camisinha
+    quantidade
+  }
+}

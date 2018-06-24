@@ -9,5 +9,6 @@ query getProfile {
     name
     orientation
     socialName
+    avatar: image
   }
 }

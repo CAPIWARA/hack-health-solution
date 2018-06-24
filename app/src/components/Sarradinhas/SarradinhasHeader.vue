@@ -51,6 +51,7 @@
       font-weight: 400
       color: $color-primary
       text-transform: uppercase
+      text-align: center
 
   .sarradinhas-header
     display: flex

@@ -1,5 +1,7 @@
 <template>
-  <harsh-screen classy="sarradinhas-details-screen">
+  <p v-if="isLoading">Carregando...</p>
+
+  <harsh-screen v-else classy="sarradinhas-details-screen">
     <header class="header sarradinhas-details-header">
       <harsh-title class="classification">{{ classification }}</harsh-title>
       <p class="points">
@@ -8,7 +10,7 @@
       </p>
     </header>
 
-    <harsh-label class="date">{{ date | toDate }}</harsh-label>
+    <!-- <harsh-label class="date">{{ date | toDate }}</harsh-label> -->
 
     <article class="sarradinhas-details-description">
       <harsh-label class="answer">Você usou camisinha? <strong>{{ camisinha | toAnswer }}</strong></harsh-label>
@@ -24,13 +26,17 @@
 </template>
 
 <script>
+  import * as types from '@/store/types'
+
   export default {
     data () {
       const DAY = 24 * 60 * 60 * 1000;
       return {
-        classification: 'Deus da sarrada',
-        date: new Date( Date.now() - 4 * DAY ),
-        points: 35,
+        isLoading: false,
+
+        classification: null,
+        date: null,
+        points: null,
         camisinha: null,
         drogas: null,
         ejaculou: null,
@@ -38,6 +44,24 @@
         pessoa: null,
         quantidade: null
       };
+    },
+    async mounted () {
+      this.isLoading = true;
+      const id = this.$route.params.id;
+      await this.$store.dispatch(types.SARRADA, id);
+      const sarrada = this.$store.getters[types.SARRADA] || {};
+
+      this.classification = sarrada.message
+
+      this.points = sarrada.total
+      this.camisinha = sarrada.camisinha
+      this.drogas = sarrada.drogas
+      this.ejaculou = sarrada.ejaculou
+      this.oral = sarrada.oral
+      this.pessoa = sarrada.pessoa
+      this.quantidade = sarrada.quantidade
+
+      this.isLoading = false;
     },
     filters: {
       toPessoa: (value) => ({
