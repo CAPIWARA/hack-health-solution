@@ -1,0 +1,15 @@
+query getProfile {
+  user {
+    id
+    birthday
+    email
+    ethnicity
+    gender
+    genderIdentity
+    image
+    name
+    orientation
+    points
+    socialName
+  }
+}
