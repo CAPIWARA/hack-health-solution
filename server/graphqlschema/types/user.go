@@ -54,7 +54,7 @@ var User = graphql.NewObject(graphql.ObjectConfig{
 	}})
 
 var Friends = graphql.NewObject(graphql.ObjectConfig{
-	Name: "user",
+	Name: "friends",
 	Fields: graphql.Fields{
 		"name": &graphql.Field{
 			Type:        graphql.String,
