@@ -19,3 +19,9 @@ var CreateExam = &graphql.Field{
 	Description: "create exam",
 	Resolve:     resolvers.CreateExam,
 }
+
+var Friends = &graphql.Field{
+	Type: graphql.NewList(types.Friends),
+	Description: "get all friends",
+	Resolve: resolvers.GetFriends,
+}
