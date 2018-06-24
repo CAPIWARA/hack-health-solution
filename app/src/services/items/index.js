@@ -15,8 +15,8 @@ const items = [
     iconActive: UserActive
   },
   {
-    name: 'Sarradinha',
-    path: { name: 'Sarradinha' },
+    name: 'Sarradinhas',
+    path: { name: 'Sarradinhas' },
     icon: Sarradinha,
     iconActive: SarradinhaActive
   },

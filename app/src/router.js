@@ -42,6 +42,22 @@ const router = new Router({
       name: 'Schedule',
       component: () => import('@/screens/Schedule')
     },
+    {
+      path: '/sarradinhas',
+      component: () => import('@/screens/Sarradinhas'),
+      children: [
+        {
+          path: '',
+          name: 'Sarradinhas',
+          component: () => import('@/screens/Sarradinhas/Dashboard')
+        },
+        {
+          path: 'history',
+          name: 'Histórico de Sarradas',
+          component: () => import('@/screens/Sarradinhas/History')
+        }
+      ]
+    }
   ]
 });
 

@@ -11,6 +11,8 @@
     "build": "poi build src/index.js"
   },
   "dependencies": {
+    "c3": "^0.6.2",
+    "d3": "^5.5.0",
     "tiny-date-format": "^0.1.1",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
