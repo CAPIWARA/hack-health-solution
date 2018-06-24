@@ -18,7 +18,7 @@
 
   .fade-enter-active
   .fade-leave-active
-    transition: opacity .5s .5s ease-in
+    transition: opacity .3s .3s ease-in
 
   .fade-enter
   .fade-leave-to
