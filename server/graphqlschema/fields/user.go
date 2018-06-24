@@ -13,3 +13,9 @@ var UserQuery = &graphql.Field{
 	Description: "get user",
 	Resolve:     resolvers.GetUser,
 }
+
+var CreateExam = &graphql.Field{
+	Type:        types.User,
+	Description: "create exam",
+	Resolve:     resolvers.CreateExam,
+}

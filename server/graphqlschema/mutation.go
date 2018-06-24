@@ -12,5 +12,6 @@ var mutation = graphql.NewObject(
 		Description: "mutation",
 		Fields: graphql.Fields{
 			"createSarrada" : fields.CreateSarrada,
+			"createExam" : fields.CreateExam,
 		},
 	})
