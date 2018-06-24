@@ -4,6 +4,7 @@ import HarshLabel from '@/components/Harsh/HarshLabel'
 import HarshButton from '@/components/Harsh/HarshButton'
 import HarshScreen from '@/components/Harsh/HarshScreen'
 import HarshLayout from '@/components/Harsh/HarshLayout'
+import HarshSelect from '@/components/Harsh/HarshSelect'
 import HarshOptions from '@/components/Harsh/HarshOptions'
 
 const components = {
@@ -13,6 +14,7 @@ const components = {
   HarshButton,
   HarshLayout,
   HarshScreen,
+  HarshSelect,
   HarshOptions
 };
 

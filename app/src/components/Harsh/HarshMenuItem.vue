@@ -45,11 +45,15 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 20px;
+    height: 15px;
+    margin-bottom: 4px;
 
     > .normal
+      max-height: 15px
       display: block
+
     > .active
+      max-height: 15px
       display: none
 
   .harsh-menu-item-icon-active
