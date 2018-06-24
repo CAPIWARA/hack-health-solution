@@ -12,7 +12,7 @@ type User struct {
 	Name           string   `json:"name"`
 	Email          string   `json:"email"`
 	Birthday       string   `json:"birthday"`
-	Points         int      `json:"points"`
+	Sarradinhas    int      `json:"sarradinhas"`
 	SocialName     string   `json:"socialName"`
 	Gender         string   `json:"gender"`
 	Orientation    string   `json:"orientation"`
@@ -21,6 +21,11 @@ type User struct {
 	Image          string   `json:"image"`
 	LastExam       string   `json:"lastExam"`
 	Friends        []string `json:"friends"`
+}
+
+type Friend struct {
+	Name        string `json:"name"`
+	Sarradinhas int    `json:"sarradinhas"`
 }
 
 func GetUser(id string) (*User, error) {

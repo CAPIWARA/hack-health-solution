@@ -23,9 +23,9 @@ var User = graphql.NewObject(graphql.ObjectConfig{
 			Type:        graphql.String,
 			Description: "birthday",
 		},
-		"points": &graphql.Field{
+		"sarradinhas": &graphql.Field{
 			Type:        graphql.String,
-			Description: "points",
+			Description: "sarradinhas",
 		},
 		"socialName": &graphql.Field{
 			Type:        graphql.String,
@@ -55,8 +55,17 @@ var User = graphql.NewObject(graphql.ObjectConfig{
 			Type:        graphql.String,
 			Description: "lastExam",
 		},
-		"friends": &graphql.Field{
-			Type:        graphql.NewList(graphql.String),
-			Description: "friends",
+	}})
+
+var Friends = graphql.NewObject(graphql.ObjectConfig{
+	Name: "user",
+	Fields: graphql.Fields{
+		"name": &graphql.Field{
+			Type:        graphql.String,
+			Description: "name",
+		},
+		"sarradinhas": &graphql.Field{
+			Type:        graphql.Int,
+			Description: "sarradinhas",
 		},
 	}})
