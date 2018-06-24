@@ -3,7 +3,7 @@
     <img class="banner" src="~@/assets/images/Banner-Sarrador.png" alt="Sarrador" />
 
     <harsh-label class="label">SARROU?</harsh-label>
-    <harsh-button class="button">Sarrei!</harsh-button>
+    <harsh-button class="button" :to="{ name: 'Criar Sarrada' }">Sarrei!</harsh-button>
   </harsh-screen>
 </template>
 

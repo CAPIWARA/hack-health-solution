@@ -89,6 +89,7 @@
 
     &.-is-link
       text-decoration: none
+      line-height: $harsh-button-size
 
     > .content
       { $typography-normal }
