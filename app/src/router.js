@@ -32,6 +32,11 @@ const router = new Router({
         }
       ]
     },
+    {
+      path: '/perfil',
+      name: 'Profile',
+      component: () => import('@/screens/Profile')
+    }
   ]
 });
 
