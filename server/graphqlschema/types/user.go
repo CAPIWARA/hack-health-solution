@@ -1,10 +1,16 @@
 package types
 
-import "github.com/graphql-go/graphql"
+import (
+	"github.com/graphql-go/graphql"
+)
 
 var User = graphql.NewObject(graphql.ObjectConfig{
 	Name: "user",
 	Fields: graphql.Fields{
+		"id": &graphql.Field{
+			Type:        graphql.String,
+			Description: "id",
+		},
 		"name": &graphql.Field{
 			Type:        graphql.String,
 			Description: "name",
@@ -45,5 +51,12 @@ var User = graphql.NewObject(graphql.ObjectConfig{
 			Type:        graphql.String,
 			Description: "image",
 		},
-
+		"lastExam": &graphql.Field{
+			Type:        graphql.String,
+			Description: "lastExam",
+		},
+		"friends": &graphql.Field{
+			Type:        graphql.NewList(graphql.String),
+			Description: "friends",
+		},
 	}})
