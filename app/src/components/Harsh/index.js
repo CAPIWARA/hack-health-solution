@@ -4,6 +4,7 @@ import HarshLabel from '@/components/Harsh/HarshLabel'
 import HarshButton from '@/components/Harsh/HarshButton'
 import HarshScreen from '@/components/Harsh/HarshScreen'
 import HarshLayout from '@/components/Harsh/HarshLayout'
+import HarshOptions from '@/components/Harsh/HarshOptions'
 
 const components = {
   HarshMenu,
@@ -11,7 +12,8 @@ const components = {
   HarshLabel,
   HarshButton,
   HarshLayout,
-  HarshScreen
+  HarshScreen,
+  HarshOptions
 };
 
 function install (Vue) {
