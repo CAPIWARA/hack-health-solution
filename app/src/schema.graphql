@@ -1,19 +1,33 @@
-# source: http://172.30.250.4:3000/graphql
-# timestamp: Sat Jun 23 2018 20:31:56 GMT-0300 (-03)
+# source: http://172.30.250.249:3000/graphql
+# timestamp: Sun Jun 24 2018 11:12:32 GMT-0300 (-03)
 
 schema {
   query: query
   mutation: mutation
 }
 
+type friends {
+  # name
+  name: String
+
+  # sarradinhas
+  sarradinhas: Int
+}
+
 # mutation
 type mutation {
+  # create exam
+  createExam: user
+
   # create new sarrada
-  createSarrada(quantidade: Int!, camisinha: Boolean!, oral: Boolean!, drogas: Boolean!, ejaculou: Boolean!, pessoa: String!): sarrada
+  createSarrada(pessoa: String!, quantidade: Int!, camisinha: Boolean!, oral: Boolean!, drogas: Boolean!, ejaculou: Boolean!): sarrada
 }
 
 # query
 type query {
+  # get all friends
+  friends: [friends]
+
   # get sarrada
   sarrada(sarradaId: String!): sarrada
 
@@ -60,9 +74,6 @@ type user {
   # ethnicity
   ethnicity: String
 
-  # gender
-  gender: String
-
   # genderIdentity
   genderIdentity: String
 
@@ -72,14 +83,17 @@ type user {
   # image
   image: String
 
+  # lastExam
+  lastExam: String
+
   # name
   name: String
 
   # orientation
   orientation: String
 
-  # points
-  points: String
+  # sarradinhas
+  sarradinhas: String
 
   # socialName
   socialName: String
