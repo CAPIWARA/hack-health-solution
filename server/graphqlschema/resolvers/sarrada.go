@@ -6,6 +6,10 @@ import (
 	"github.com/kr/pretty"
 )
 
+type Sarradinhas struct {
+	Total int `json:"total"`
+}
+
 func CreateSarrada(params graphql.ResolveParams) (interface{}, error) {
 	var sarrada users.Sarrada
 
@@ -17,11 +21,12 @@ func CreateSarrada(params graphql.ResolveParams) (interface{}, error) {
 	sarrada.Pessoa = params.Args["pessoa"].(string)
 	sarrada.UserId = params.Context.Value("id").(string)
 
-	if err := sarrada.CreateSarrada(); err != nil {
+	total, err := sarrada.CreateSarrada();
+	if err != nil {
 		pretty.Log(err)
 		return nil, err
 	}
-	return sarrada, nil
+	return Sarradinhas{Total: total}, nil
 }
 
 func GetSarrada(params graphql.ResolveParams)(interface{}, error){

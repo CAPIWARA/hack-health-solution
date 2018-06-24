@@ -38,3 +38,12 @@ var Sarrada = graphql.NewObject(graphql.ObjectConfig{
 			Description: "id string",
 		},
 	}})
+
+var TotalSarradinhas = graphql.NewObject(graphql.ObjectConfig{
+	Name: "sarradinhas",
+	Fields: graphql.Fields{
+		"total": &graphql.Field{
+			Type:        graphql.Int,
+			Description: "total de sarradinhas",
+		},
+	}})

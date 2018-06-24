@@ -7,7 +7,7 @@ import (
 )
 
 var CreateSarrada = &graphql.Field{
-	Type:        types.Sarrada,
+	Type:        types.TotalSarradinhas,
 	Description: "create new sarrada",
 	Args: graphql.FieldConfigArgument{
 		"camisinha": &graphql.ArgumentConfig{
@@ -33,7 +33,7 @@ var CreateSarrada = &graphql.Field{
 }
 
 var SarradaQuery = &graphql.Field{
-	Type:        types.Sarrada,
+	Type:        types.TotalSarradinhas,
 	Description: "get sarrada",
 	Args: graphql.FieldConfigArgument{
 		"sarradaId": &graphql.ArgumentConfig{

@@ -49,3 +49,12 @@ func (user *User) CreateExam() (error) {
 	user.LastExam = GetCurrentGmtDate()
 	return nil
 }
+
+func AddSarradinhas(total int, userid string) (error) {
+	c := dbs.Session.DB(dbs.Database).C("users")
+	if err := c.Update(bson.M{"_id": userid}, bson.M{"$inc": bson.M{"sarradinhas": total}}); err != nil {
+		pretty.Log(err)
+		return err
+	}
+	return nil
+}

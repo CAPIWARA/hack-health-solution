@@ -8,25 +8,30 @@ import (
 )
 
 type Sarrada struct {
-	Id       string `json:"-" bson:"_id"`
-	UserId     string        `json:"userid"`
-	Camisinha  bool          `json:"camisinha"`
-	Oral       bool          `json:"oral"`
-	Pessoa     string        `json:"pessoa"`
-	Quantidade int           `json:"quantidade"`
-	Drogas     bool          `json:"drogas"`
-	Ejaculou   bool          `json:"ejaculou"`
+	Id         string `json:"id" bson:"_id"`
+	UserId     string `json:"userid"`
+	Camisinha  bool   `json:"camisinha"`
+	Oral       bool   `json:"oral"`
+	Pessoa     string `json:"pessoa"`
+	Quantidade int    `json:"quantidade"`
+	Drogas     bool   `json:"drogas"`
+	Ejaculou   bool   `json:"ejaculou"`
 }
 
-func (sarrada *Sarrada) CreateSarrada() error {
+func (sarrada *Sarrada) CreateSarrada() (int, error) {
 	sarrada.Id = bson.NewObjectId().String()
 	c := dbs.Session.DB(dbs.Database).C("sarradas")
 
 	if err := c.Insert(sarrada); err != nil {
 		pretty.Log(err)
-		return err
+		return 0,err
 	}
-	return nil
+	total, err := sarrada.CalcSarrada()
+	if err !=  nil {
+		pretty.Log(err)
+		return 0, err
+	}
+	return total, nil
 }
 
 func GetSarrada(id string) (*Sarrada, error) {
@@ -41,7 +46,7 @@ func GetSarrada(id string) (*Sarrada, error) {
 	return &data, nil
 }
 
-func GetSarradas(id string)([]Sarrada, error){
+func GetSarradas(id string) ([]Sarrada, error) {
 	var data []Sarrada
 	c := dbs.Session.DB(dbs.Database).C("sarradas")
 	if err := c.Find(bson.M{"userid": id}).All(&data); err != nil {
@@ -52,4 +57,25 @@ func GetSarradas(id string)([]Sarrada, error){
 		data[k].Id = bson.ObjectId(v.Id).Hex()
 	}
 	return data, nil
+}
+
+func (sarrada *Sarrada) CalcSarrada()(int, error) {
+	var total int
+	total = total + (sarrada.Quantidade)
+	if sarrada.Ejaculou {
+		total = total + 1
+	}
+	if sarrada.Drogas {
+		total = total + 0
+	}
+	if sarrada.Oral {
+		total = total + 1
+	}
+	if sarrada.Pessoa == "" {
+
+	}
+	if sarrada.Camisinha {
+		total = total * 2
+	}
+	return total, AddSarradinhas(total, sarrada.UserId)
 }
