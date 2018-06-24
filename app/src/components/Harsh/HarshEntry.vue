@@ -19,7 +19,7 @@
       type: {
         type: String,
         default: 'text',
-        validator: (type) => [ 'text', 'email', 'password' ].includes(type)
+        validator: (type) => [ 'text', 'date',  'email', 'password' ].includes(type)
       },
       name: {
         type: String,
