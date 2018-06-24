@@ -1,4 +1,4 @@
-export const baseURL = 'http://172.30.250.249:3000/';
+export const baseURL = 'http://localhost:3000/';
 
 /**
  * Normaliza URLs removendo barras duplas no curpo da URL.
