@@ -34,8 +34,6 @@
 </template>
 
 <script>
-  import format from 'tiny-date-format';
-
   const DAY = 24 * 60 * 60 * 1000;
 
   export default {
@@ -57,12 +55,9 @@
             classification: 'Deus da sarrada',
             date: new Date( Date.now() - 4 * DAY ),
             points: 35
-          },
+          }
         ]
       };
-    },
-    filters: {
-      toDate: (date, formatter = 'DD/MM/YYYY') => format(date, formatter)
     }
   };
 </script>
@@ -76,10 +71,11 @@
   .sarradinhas-history-header
     display: flex
     align-items: flex-end
+    justify-content: space-between
     width: 100%
+    margin-bottom: 30px
 
     & > .quantity
-      margin-right: 42px
       text-decoration: none
 
     & > .quantity > .label

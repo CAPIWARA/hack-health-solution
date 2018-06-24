@@ -55,7 +55,12 @@ const router = new Router({
           path: 'history',
           name: 'Histórico de Sarradas',
           component: () => import('@/screens/Sarradinhas/History')
-        }
+        },
+        {
+          path: ':id',
+          name: 'Detalhes de Sarradas',
+          component: () => import('@/screens/Sarradinhas/Details')
+        },
       ]
     }
   ]

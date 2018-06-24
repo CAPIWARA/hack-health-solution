@@ -1,0 +1,9 @@
+{
+  "name": "Sarrada",
+  "short_name": "Sarrada",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ff0000",
+  "theme_color": "#ff0000"
+}
