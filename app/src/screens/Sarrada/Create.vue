@@ -31,7 +31,7 @@
     />
 
     <harsh-options
-      v-model="params.pessoas"
+      v-model="params.quantidade"
       label="Transou com quantas pessoas?"
       :options="[
         { label: '1', value: 1 },
@@ -85,9 +85,12 @@
     methods: {
       async onCreateSarrada () {
         try {
-          await this.$store.dispatch(types.SARRADA_CREATE, this.params);
+          await this.$store.dispatch(types.SARRADA_CREATE, {
+            ...this.params,
+            pessoa: this.params.pessoa && this.params.pessoa.value
+          });
           const sarrada = this.$store.getters[types.SARRADA] || {};
-          this.$router.push('Detalhes da Sarrada', { id: sarrada.id });
+          this.$router.push({ name: 'Detalhes da Sarrada', params: { id: sarrada.id } });
         } catch (error) {
           console.dir(error);
           this.error = 'Erro ao enviar a sarrada, confira os campos preenchidos ou sarre novamente.'

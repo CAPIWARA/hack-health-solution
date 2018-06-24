@@ -4,12 +4,10 @@ query getProfile {
     birthday
     email
     ethnicity
-    gender
     genderIdentity
     image
     name
     orientation
-    points
     socialName
   }
 }

@@ -58,7 +58,7 @@ const router = new Router({
         },
         {
           path: ':id',
-          name: 'Detalhes de Sarradas',
+          name: 'Detalhes da Sarrada',
           component: () => import('@/screens/Sarradinhas/Details')
         },
       ]

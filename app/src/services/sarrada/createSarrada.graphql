@@ -14,13 +14,7 @@ mutation createSarrada (
     pessoa:     $pessoa
     quantidade: $quantidade
   ) {
-    camisinha
-    drogas
-    ejaculou
-    id
-    oral
-    pessoa
-    quantidade
-    userid
+    mensagem
+    total
   }
 }
