@@ -5893,6 +5893,10 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
+tiny-date-format@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/tiny-date-format/-/tiny-date-format-0.1.1.tgz#fc3cc3774c44b1563a6b7344aab9eecc26e063b7"
+
 title-case@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/title-case/-/title-case-2.1.1.tgz#3e127216da58d2bc5becf137ab91dae3a7cd8faa"

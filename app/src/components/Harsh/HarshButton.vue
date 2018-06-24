@@ -56,6 +56,7 @@
     position: relative
     z-index: 0
     height: $harsh-button-size
+    min-height: $harsh-button-size
     border: 0
     padding: 0
     padding-left: 40px

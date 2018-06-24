@@ -36,7 +36,12 @@ const router = new Router({
       path: '/perfil',
       name: 'Profile',
       component: () => import('@/screens/Profile')
-    }
+    },
+    {
+      path: '/agenda',
+      name: 'Schedule',
+      component: () => import('@/screens/Schedule')
+    },
   ]
 });
 
