@@ -1,4 +1,4 @@
-export const baseURL = 'http://172.30.250.4:3000/';
+export const baseURL = 'http://172.30.250.249:3000/';
 
 /**
  * Normaliza URLs removendo barras duplas no curpo da URL.
@@ -12,7 +12,7 @@ export function normalizeURL (url) {
 /**
  * Obtém os cabeçalhos para a requisição.
  */
-export function getHeaders (body) {
+export function getHeaders () {
   const headers = {
     'Content-Type': 'application/json'
   };
