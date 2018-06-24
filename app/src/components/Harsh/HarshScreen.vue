@@ -1,12 +1,14 @@
 <template>
   <section class="harsh-screen" :class="{ '-is-FullScreen': isFullScreen }">
-    <router-link v-if="!isFullScreen" class="link" :to="{ name: 'Home' }">
-      <img class="logo" src="~@/assets/images/Logo.png" alt="Sarrada" />
-    </router-link>
+    <section class="content">
+      <router-link v-if="!isFullScreen" class="link" :to="{ name: 'Home' }">
+        <img class="logo" src="~@/assets/images/Logo.png" alt="Sarrada" />
+      </router-link>
 
-    <main :class="[ 'screen', classy ]">
-      <slot />
-    </main>
+      <main :class="[ 'screen', classy ]">
+        <slot />
+      </main>
+    </section>
 
     <harsh-menu v-if="!isFullScreen" class="footer" />
   </section>
@@ -21,7 +23,6 @@
   };
 </script>
 
-
 <style lang="stylus">
   @import '~@/assets/styles/theme'
 
@@ -34,23 +35,28 @@
       left: 0
       bottom: 0
 
-    > .screen
-      display: flex
-      align-items: center
-      flex-direction: column
-      height: calc(100vh - 95px)
+    > .content
+      height: calc(100% - 50px)
       overflow-y: auto
 
-    &.-is-FullScreen > .screen
-      height: 100%
-
-
-    > .link
+    > .content > .link
       display: block
       text-align: center
 
-    > .link > .logo
+    > .content > .link > .logo
       width: auto
       height: 35px
       margin-top: 10px
+
+    > .content > .screen
+      display: flex
+      align-items: center
+      flex-direction: column
+      min-height: calc(100% - 95px)
+
+    &.-is-FullScreen > .content
+      height: 100%
+
+    &.-is-FullScreen > .content > .screen
+      min-height: 100%
 </style>

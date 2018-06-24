@@ -8,7 +8,9 @@
         { label: 'Não', value: false }
       ]"
     />
+
     <harsh-options
+      v-if="params.camisinha"
       v-model="params.oral"
       label="Até no sexo oral?"
       :options="[
@@ -57,7 +59,9 @@
       ]"
     />
 
-    <harsh-button type="button">Okay</harsh-button>
+    <harsh-label v-if="error" class="error">{{ error }}</harsh-label>
+
+    <harsh-button @click="onCreateSarrada()">Okay</harsh-button>
   </harsh-screen>
 </template>
 
@@ -67,6 +71,7 @@
   export default {
     data () {
       return {
+        error: '',
         params: {
           camisinha: null,
           drogas: null,
@@ -78,23 +83,28 @@
       };
     },
     methods: {
-      onCreateSarrada () {
-        this.$store.dispatch(types.SARRADA_CREATE, {
-          camisinha: params.camisinha,
-          drogas: params.drogas,
-          ejaculou: params.ejaculou,
-          oral: params.oral,
-          pessoa: params.pessoa,
-          quantidade: params.quantidade,
-        });
+      async onCreateSarrada () {
+        try {
+          await this.$store.dispatch(types.SARRADA_CREATE, this.params);
+          const sarrada = this.$store.getters[types.SARRADA] || {};
+          this.$router.push('Detalhes da Sarrada', { id: sarrada.id });
+        } catch (error) {
+          console.dir(error);
+          this.error = 'Erro ao enviar a sarrada, confira os campos preenchidos ou sarre novamente.'
+        }
       }
     }
   };
 </script>
 
 <style lang="stylus">
+  @import '~@/assets/styles/theme'
+
   .create-sarrada-screen
     padding: 15px 30px
+
+    & > .error
+      color: $color-contrast
 
     & > *
       margin-bottom: 25px

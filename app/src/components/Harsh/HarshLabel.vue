@@ -8,9 +8,9 @@
   @import '~@/assets/styles/theme'
 
   .harsh-label
-    color: #FFFFFF
     { $typography-normal }
 
+    &
     > a
-      color: #FFFFFF
+      color: $color-primary
 </style>

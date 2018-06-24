@@ -5,11 +5,11 @@
       <figcaption class="name">{{ userName }}</figcaption>
     </figure>
 
-    <div class="quantity">
+    <router-link class="quantity" :to="{ name: 'Histórico de Sarradas' }">
       <harsh-label class="label">você tem</harsh-label>
       <harsh-title class="label">{{ quantity }}</harsh-title>
       <harsh-label class="label">Sarradinhas</harsh-label>
-    </div>
+    </router-link>
   </section>
 </template>
 
@@ -62,6 +62,7 @@
 
     > .quantity
       margin-left: 42px
+      text-decoration: none
 
       > .label
         color: $color-primary
@@ -77,6 +78,5 @@
 
       > .label:nth-child(3)
         font-size: 22pt
-
 </style>
 
